@@ -1,0 +1,6 @@
+cores: 1
+time: "02:30:00"
+#partition: "interactive"
+partition: "small"
+local_disk: 0
+mem: "8GB"

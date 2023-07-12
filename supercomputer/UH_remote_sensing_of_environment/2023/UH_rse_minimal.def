@@ -1,0 +1,13 @@
+Bootstrap: docker
+From: jupyter/minimal-notebook:python-3.10
+
+
+%post
+    apt-get update
+    apt-get install -y ssh-client less libgl1-mesa-dev xvfb
+    apt-get clean 
+    conda install --yes -c conda-forge pip geemap pyntcloud 
+    conda clean -afy
+    pip install ipygany pyvista laspy[lazrs,laszip] 
+    jupyter nbextension enable --py --sys-prefix ipygany 
+    jupyter labextension install @jupyter-widgets/jupyterlab-manager ipygany

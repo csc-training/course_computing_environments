@@ -11,7 +11,11 @@ USER $NB_USER
 
 ### Installing the needed conda packages and jupyter lab extensions. 
 # Run conda clean afterwards in same layer to keep image size lower
-RUN conda install --yes -c conda-forge pip geemap pyntcloud \
-  && conda clean -afy && pip install ipygany pyvista laspy[lazrs,laszip] 
-  
+RUN conda install --yes -c conda-forge pip geemap pyntcloud  cartopy cfgrib \
+    descartes fiona geopandas geopy leafmap lidar pyproj pyogrio python-pdal \
+    pysal rasterio rasterstats rtree shapely scipy scikit-image \
+    && conda clean -afy && pip install ipygany pyvista laspy[lazrs,laszip] 
+
+
+
 RUN jupyter nbextension enable --py --sys-prefix ipygany && jupyter labextension install @jupyter-widgets/jupyterlab-manager ipygany

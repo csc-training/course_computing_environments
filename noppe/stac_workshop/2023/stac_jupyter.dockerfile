@@ -19,4 +19,4 @@ USER $NB_USER
 ### Installing the needed conda packages and jupyter lab extensions. 
 # Run conda clean afterwards in same layer to keep image size lower
 RUN conda install --yes -c conda-forge pyproj requests dask stackstac pystac-client pystac geopandas gdal \
-  && conda clean -afy
+    &&  rioxarray json rasterio conda clean -afy
